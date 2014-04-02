@@ -1,0 +1,78 @@
+import java.util.Scanner;
+public class ODD_EVEN
+{
+
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		
+		int random1;
+		int answer;
+		int win=0;
+		int comp_win=0;
+		int cont=1;
+		int number_games=0;
+		
+		while(cont!=0)
+		{
+			++number_games;
+			
+			random1 = 0 + (int)(Math.random()*100);
+			
+			System.out.println("Comp will choose even or odd please choose 1 for odd and 2 for even");
+			answer = input.nextInt();
+			
+			if (answer == 1)
+			{
+				if(random1 %2 == 0)
+				{
+					++comp_win;
+					System.out.println("you lose");
+					System.out.printf("the comp choose %d\n", random1);
+					System.out.printf("do you want to play again?\n");
+					cont = input.nextInt();
+				}
+				else if(random1 %2 != 0)
+				{
+					++win;
+					System.out.println("you win");
+					System.out.printf("the comp choose %d\n", random1);
+					System.out.printf("do you want to play again?\n");
+					cont = input.nextInt();
+				}
+			}	
+				if (answer == 2)
+				{
+					if(random1 %2 == 0)
+					{
+						++win;
+						System.out.println("you win");
+						System.out.printf("the comp choose %d\n", random1);
+						System.out.printf("do you want to play again?\n");
+						cont = input.nextInt();
+						
+						if (cont == 0)
+						{
+							System.out.printf("games played is %d\n", number_games);
+							System.out.printf("you have won %d\n", win);
+							System.out.printf("you have lost %d\n", comp_win);
+							
+						}
+					}
+					else if(random1 %2 != 0)
+					{
+						++comp_win;
+						System.out.println("you lose");
+						System.out.printf("the comp choose %d\n", random1);
+						System.out.printf("do you want to play again?\n");
+						cont = input.nextInt();
+					}
+				}
+				
+		}
+		System.out.printf("games played %d\n", number_games);
+		System.out.printf("games won %d\n", win);
+		System.out.printf("comp won %d\n", comp_win);
+	}
+
+}
